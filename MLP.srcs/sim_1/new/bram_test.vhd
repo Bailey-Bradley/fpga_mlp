@@ -25,7 +25,7 @@ architecture Behavioral of bram_test is
     signal dina : STD_LOGIC_VECTOR(7 DOWNTO 0);
     signal douta : STD_LOGIC_VECTOR(7 DOWNTO 0);
 begin
-DUT : entity xil_defaultlib.blk_mem_gen_0
+DUT : entity xil_defaultlib.weights_mem
   PORT MAP (
     clka => clka,
     ena => ena,
