@@ -47,7 +47,7 @@ process begin
     clka <= '1';
     wait for 1 ns;
     
-    addra <= "0000000000000010";
+    addra <= "1100011001111111";
     
     clka <= '0';
     wait for 1 ns;
