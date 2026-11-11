@@ -15,8 +15,6 @@ library xil_defaultlib;
 entity bram_test is
 end bram_test;
 
-
-
 architecture Behavioral of bram_test is
     signal clka : STD_LOGIC;
     signal ena: STD_LOGIC;
