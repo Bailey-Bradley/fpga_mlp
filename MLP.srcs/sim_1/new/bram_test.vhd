@@ -37,28 +37,41 @@ process begin
     
     ena <= '1';
     wea <= '0';
-    addra <= "0000000000000000";
+    addra <= "0000000000000001";
     dina <= "00000000";
     
-    clka <= '0';
-    wait for 1 ns;
-    clka <= '1';
-    wait for 1 ns;
+    for i in 1 to 3 loop
+        clka <= '0';
+        wait for 1 ns;
+        clka <= '1';
+        wait for 1 ns;
+    end loop;
     
-    addra <= "1100011001111111";
+    assert(douta="00000010") report "Failed 1" severity error;
     
-    clka <= '0';
-    wait for 1 ns;
-    clka <= '1';
-    wait for 1 ns;
-    clka <= '0';
-    wait for 1 ns;
-    clka <= '1';
-    wait for 1 ns;
-    clka <= '0';
-    wait for 1 ns;
-    clka <= '1';
-    wait for 1 ns;
+    addra <= "0000000000000010";
+    
+    for i in 1 to 3 loop
+        clka <= '0';
+        wait for 1 ns;
+        clka <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(douta="11111101") report "Failed 2" severity error;
+    
+    addra <= "0000000000000100";
+    
+    for i in 1 to 3 loop
+        clka <= '0';
+        wait for 1 ns;
+        clka <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(douta="11111111") report "Failed 3" severity error;
+    
+    wait;
 
 end process;
     

@@ -62,28 +62,14 @@ process begin
     wea <= '0';
     dina <= "00000000";
     
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
+    for i in 1 to 6 loop
+        clk <= '0';
+        wait for 1 ns;
+        clk <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(douta="00011111") report "Failed 1" severity error;
     
     wait;
 end process;

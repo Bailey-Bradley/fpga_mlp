@@ -43,28 +43,14 @@ process begin
     row_width <= "0000000100";
     address_offset <= "0000000000100000";
     
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
+    for i in 1 to 6 loop
+        clk <= '0';
+        wait for 1 ns;
+        clk <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(address="UUUUUUUUUUUUUUUU") report "Failed 1" severity error;
     
     en <= '1';
     row_index <= "000101";
@@ -72,36 +58,28 @@ process begin
     row_width <= "0000000100";
     address_offset <= "0000000000000100";
     
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
+    for i in 1 to 3 loop
+        clk <= '0';
+        wait for 1 ns;
+        clk <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(address="0000000000011011") report "Failed 2" severity error;
     
     row_index <= "111111";
     column_index <= "1100001111";
     row_width <= "1100010000";
     address_offset <= "0000000000000000";
     
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
-    clk <= '0';
-    wait for 1 ns;
-    clk <= '1';
-    wait for 1 ns;
+    for i in 1 to 3 loop
+        clk <= '0';
+        wait for 1 ns;
+        clk <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(address="1100001111111111") report "Failed 3" severity error;
     
     wait;
 end process;
