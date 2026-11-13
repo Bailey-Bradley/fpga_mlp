@@ -71,6 +71,17 @@ process begin
     
     assert(douta="1") report "Failed 3" severity error;
     
+    addra <= B"00_0000_1100_1100";
+    
+    for i in 1 to 3 loop
+        clka <= '0';
+        wait for 1 ns;
+        clka <= '1';
+        wait for 1 ns;
+    end loop;
+    
+    assert(douta="1") report "Failed 4" severity error;
+    
     wait;
 
 end process;
