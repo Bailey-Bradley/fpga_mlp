@@ -32,32 +32,37 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 
--- This is the module that actually takes an input neuron, applies ReLU, multiplies it by the weight, and updates the target output neuron.
+-- This is the module that actually takes a RELU'd input neuron, multiplies it by the weight, and updates the target output neuron.
 entity neuronupdater is
-    Port ( input_neuron : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Port ( 
+           clk : in STD_LOGIC;
+           en : in STD_LOGIC; -- if 0: dont react to any input changes
+           ready : in STD_LOGIC; -- will be pulsed for one clock cycle to know we want to update the neuron
+           input_neuron : in STD_LOGIC_VECTOR(31 DOWNTO 0);
            weight : in STD_LOGIC_VECTOR(7 DOWNTO 0);
            current : in STD_LOGIC_VECTOR(31 DOWNTO 0);
-           output : out STD_LOGIC_VECTOR(31 DOWNTO 0));
+           output : out STD_LOGIC_VECTOR(31 DOWNTO 0);
+           done : out STD_LOGIC); -- pulsed for one clock cycle so neuron_src_index knows when its time to increment
 end neuronupdater;
 
 architecture Behavioral of neuronupdater is
+    signal done_reg : STD_LOGIC := '0';
+    signal output_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 begin
-    process(input_neuron, weight, current)
-        variable signed_in : signed(31 DOWNTO 0); -- i know i could just say signed(input_neuron) the entire time but
-        variable relu_out : signed(31 DOWNTO 0); 
-        variable weight_out : signed(39 DOWNTO 0); -- multiplying relu_out by the weight forces a 40 bit output so
+    process(clk)
+        variable temp_out : signed(39 DOWNTO 0); -- multiplying the 32 bit input neuron by the weight forces a 40 bit output so
     begin
-        signed_in := signed(input_neuron);
-    
-        if signed_in(31) = '1' then
-            relu_out := (others => '0');
-        else
-            relu_out := signed_in;
+        if rising_edge(clk) then   
+            done_reg <= '0'; -- set high for only one clock cycle     
+            if en = '1' and ready = '1' then
+                temp_out := signed(input_neuron) * signed(weight);
+                output_reg <= STD_LOGIC_VECTOR(signed(current) + temp_out(31 DOWNTO 0));
+                done_reg <= '1';         
+            end if;     
         end if;
-        
-        weight_out := relu_out * signed(weight);
-        
-        output <= STD_LOGIC_VECTOR(signed(current) + weight_out(31 DOWNTO 0));
     end process;
+    
+    output <= output_reg;
+    done <= done_reg;
 
 end Behavioral;
