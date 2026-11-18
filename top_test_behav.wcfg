@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="3,211.650 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,277.337 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="250"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/top_test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/go" type="logic">
+      <obj_property name="ElementShortName">go</obj_property>
+      <obj_property name="ObjectShortName">go</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/sw0" type="logic">
+      <obj_property name="ElementShortName">sw0</obj_property>
+      <obj_property name="ObjectShortName">sw0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/sw1" type="logic">
+      <obj_property name="ElementShortName">sw1</obj_property>
+      <obj_property name="ObjectShortName">sw1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/sw2" type="logic">
+      <obj_property name="ElementShortName">sw2</obj_property>
+      <obj_property name="ObjectShortName">sw2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/sw3" type="logic">
+      <obj_property name="ElementShortName">sw3</obj_property>
+      <obj_property name="ObjectShortName">sw3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_test/top/state_reg" type="array">
+      <obj_property name="ElementShortName">state_reg[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state_reg[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group141" type="group">
+      <obj_property name="label">Counter 10</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/counter10/count_out" type="array">
+         <obj_property name="ElementShortName">count_out[9:0]</obj_property>
+         <obj_property name="ObjectShortName">count_out[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/counter10/inc" type="logic">
+         <obj_property name="ElementShortName">inc</obj_property>
+         <obj_property name="ObjectShortName">inc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/counter10/inc_out" type="logic">
+         <obj_property name="ElementShortName">inc_out</obj_property>
+         <obj_property name="ObjectShortName">inc_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/counter10/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group142" type="group">
+      <obj_property name="label">Counter 6</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/counter6/count_out" type="array">
+         <obj_property name="ElementShortName">count_out[5:0]</obj_property>
+         <obj_property name="ObjectShortName">count_out[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/counter6/inc_out" type="logic">
+         <obj_property name="ElementShortName">inc_out</obj_property>
+         <obj_property name="ObjectShortName">inc_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/counter6/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group143" type="group">
+      <obj_property name="label">Image Reader</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/image_reader/addr" type="array">
+         <obj_property name="ElementShortName">addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/image_reader/dout" type="logic">
+         <obj_property name="ElementShortName">dout</obj_property>
+         <obj_property name="ObjectShortName">dout</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group144" type="group">
+      <obj_property name="label">Weights mem addresser</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/weights_mem_addresser/row_width" type="array">
+         <obj_property name="ElementShortName">row_width[9:0]</obj_property>
+         <obj_property name="ObjectShortName">row_width[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/weights_mem_addresser/address_offset" type="array">
+         <obj_property name="ElementShortName">address_offset[15:0]</obj_property>
+         <obj_property name="ObjectShortName">address_offset[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/weights_mem_addresser/dout" type="array">
+         <obj_property name="ElementShortName">dout[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/weights_mem_addresser/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group146" type="group">
+      <obj_property name="label">Hidden Layer RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/hidden_layer_ram/wea" type="array">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/hidden_layer_ram/addra" type="array">
+         <obj_property name="ElementShortName">addra[5:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/hidden_layer_ram/douta" type="array">
+         <obj_property name="ElementShortName">douta[15:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group147" type="group">
+      <obj_property name="label">Neuron Updater</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_test/top/neuron_updater/input_neuron" type="array">
+         <obj_property name="ElementShortName">input_neuron[31:0]</obj_property>
+         <obj_property name="ObjectShortName">input_neuron[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/neuron_updater/weight" type="array">
+         <obj_property name="ElementShortName">weight[7:0]</obj_property>
+         <obj_property name="ObjectShortName">weight[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/neuron_updater/current" type="array">
+         <obj_property name="ElementShortName">current[31:0]</obj_property>
+         <obj_property name="ObjectShortName">current[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/neuron_updater/output" type="array">
+         <obj_property name="ElementShortName">output[31:0]</obj_property>
+         <obj_property name="ObjectShortName">output[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_test/top/neuron_updater/done" type="logic">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

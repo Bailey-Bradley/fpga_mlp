@@ -35,7 +35,6 @@ use IEEE.NUMERIC_STD.ALL;
 entity max_register is
     Port ( en : in STD_LOGIC;
            clk : in STD_LOGIC;
-           rst : in STD_LOGIC; -- assert any time you want to perform a new inference
            input_val : in STD_LOGIC_VECTOR(31 DOWNTO 0);
            input_idx : in STD_LOGIC_VECTOR(3 DOWNTO 0);
            output_value : out STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -49,10 +48,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if rst = '1' then
-                max_value <= x"80000000";
-                max_idx <= "0000";
-            elsif en = '1' then
+            if en = '1' then
                 if signed(input_val) > max_value then
                     max_value <= signed(input_val);
                     max_idx <= input_idx;

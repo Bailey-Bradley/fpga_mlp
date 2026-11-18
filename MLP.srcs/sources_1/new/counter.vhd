@@ -17,35 +17,40 @@ entity counter is
         inc : in STD_LOGIC;
         max_count : in STD_LOGIC_VECTOR(COUNT_WIDTH-1 downto 0);
         count_out : out STD_LOGIC_VECTOR(COUNT_WIDTH-1 downto 0);
-        inc_out : out STD_LOGIC
+        inc_out : out STD_LOGIC;
+        done : out STD_LOGIC := '0'
     );
 end counter;
 
 architecture Behavioral of counter is
     signal count_reg : STD_LOGIC_VECTOR(COUNT_WIDTH-1 downto 0) := (others => '0');
+    signal prev_en : STD_LOGIC := '0';
 begin
 
 process(clk)
-    variable count : STD_LOGIC_VECTOR(COUNT_WIDTH-1 downto 0) := (others => '0');
 begin
-    if rising_edge(clk) and en = '1' and inc = '1' then
-        if count = max_count then
-            count := (others => '0');
-        else
-            count := std_logic_vector(unsigned(count) + 1);
+    if rising_edge(clk) then
+        
+        prev_en <= en;
+    
+        if en = '1' and inc = '1' then
+            if unsigned(count_reg) = unsigned(max_count) - 1 then
+                count_reg <= (others => '0');
+            else
+                count_reg <= std_logic_vector(unsigned(count_reg) + 1);
+            end if;
         end if;
         
-        count_reg <= count;    
+        if (en and inc) = '1' or (not prev_en and en) = '1' then
+            done <= '1';
+        else
+            done <= '0';
+        end if;
+
     end if;
-    
-    if count = max_count and inc = '1' then
-        inc_out <= '1';
-    else
-        inc_out <= '0';
-    end if;
-    
 end process;
 
+    inc_out <= '1' when (en = '1') and (inc = '1') and (unsigned(count_reg) = unsigned(max_count) - 1) else '0';
     count_out <= count_reg;
 
 end Behavioral;

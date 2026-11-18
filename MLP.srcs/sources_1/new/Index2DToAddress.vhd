@@ -12,11 +12,11 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Index2DToAddress is
     generic (
-        ROW_INDEX_WIDTH : integer := 6;
+        ROW_INDEX_WIDTH : integer := 7;
         COLUMN_INDEX_WIDTH: integer := 10;
         ROW_WIDTH_WIDTH: integer := 10;
-        ADDRESS_OFFSET_WIDTH: integer := 16;
-        ADDRESS_WIDTH: integer := 16
+        ADDRESS_OFFSET_WIDTH: integer := 17;
+        ADDRESS_WIDTH: integer := 17
     );
     Port (
         clk : in STD_LOGIC;

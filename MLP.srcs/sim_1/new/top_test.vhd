@@ -37,15 +37,30 @@ end top_test;
 architecture Behavioral of top_test is
     signal clk : STD_LOGIC;
     signal go : STD_LOGIC;
+    
+    signal sw0: std_logic;
+    signal sw1: std_logic;
+    signal sw2: std_logic;
+    signal sw3: std_logic;
 begin
 
 top : entity work.top
     port map (
         clk => clk,
-        go => go
+        go => go,
+        
+        sw0 => sw0,
+        sw1 => sw1,
+        sw2 => sw2,
+        sw3 => sw3
     );
     
 process begin
+
+    sw0 <= '0';
+    sw1 <= '1';
+    sw2 <= '0';
+    sw3 <= '0';
 
     go <= '0';
 
@@ -58,7 +73,7 @@ process begin
     
     go <= '1';
     
-    for i in 1 to 787 loop
+    for i in 1 to 500000 loop
         clk <= '0';
         wait for 1 ns;
         clk <= '1';
